@@ -66,7 +66,7 @@ class Scenario:
     requirements: List[Achievement] = field(default_factory=list)
 
     def formatted(self):
-        return f"Nr. {self.id} {self.name}\nVoraussetzungen: {self.requirements}\nZiel: {self.aim}\nSchwierigkeit: {self.difficulty.name if self.difficulty else None}, Versuche: {self.attempts}\nBelohnungen: {self.rewards}\nNeue Orte: {self.successors}\n{self.description}"
+        return f"Nr. {self.id} {self.name}\nVoraussetzungen: {self.requirements}\nZiel: {self.aim}\nVorgänger: {self.predecessors}\nNachfolger: {self.successors}\nSchwierigkeit: {self.difficulty.name if self.difficulty else None}, Versuche: {self.attempts}\nBelohnungen: {self.rewards}\nNeue Orte: {self.successors}\n{self.description}"
 
     def short_formatted(self):
         return f"Nr. {self.id} {self.name if self.name else ''}"

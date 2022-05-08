@@ -78,8 +78,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "8",
-            "9"
+            "9",
+            "8"
         ]
     },
     {
@@ -136,9 +136,9 @@
             "+2 Ansehen"
         ],
         "successors": [
+            "13",
             "7",
-            "14",
-            "13"
+            "14"
         ]
     },
     {
@@ -170,8 +170,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "12",
-            "11"
+            "11",
+            "12"
         ]
     },
     {
@@ -220,8 +220,8 @@
             ""
         ],
         "successors": [
-            "14",
             "10",
+            "14",
             "19"
         ]
     },
@@ -255,8 +255,8 @@
         "id": "14",
         "name": "Frostsenke",
         "predecessors": [
-            "5",
             "18",
+            "5",
             "8"
         ],
         "requirements": [],
@@ -315,9 +315,9 @@
             ""
         ],
         "successors": [
-            "20",
+            "15",
             "17",
-            "15"
+            "20"
         ]
     },
     {
@@ -329,7 +329,8 @@
         "id": "15",
         "name": "Schrein der St\u00e4rke",
         "predecessors": [
-            "13"
+            "13",
+            "39"
         ],
         "requirements": [],
         "rewards": [
@@ -363,8 +364,8 @@
         "id": "20",
         "name": "Versteck der Nekromantin",
         "predecessors": [
-            "7",
-            "13"
+            "13",
+            "7"
         ],
         "requirements": [
             {
@@ -477,9 +478,9 @@
             ""
         ],
         "successors": [
-            "36",
             "35",
-            "31"
+            "31",
+            "36"
         ]
     },
     {
@@ -532,8 +533,8 @@
         ],
         "successors": [
             "23",
-            "43",
             "14",
+            "43",
             "26"
         ]
     },
@@ -553,8 +554,8 @@
             ""
         ],
         "successors": [
-            "24",
-            "25"
+            "25",
+            "24"
         ]
     },
     {
@@ -629,7 +630,7 @@
         ],
         "aim": "Zerst\u00f6rt die Felss\u00e4ule a",
         "attempts": "",
-        "description": "Bei dem Artefakt handelt es sich um das Gef\u00e4\u00df der Elemente. Das Artefakt ist auf Nacht eingestellt und somit verdorben. Nachdem wir die S\u00e4ulen zerst\u00f6rt haben, ist das Artefakt wieder im Geleichgewicht. Wer hat das Artefakt verdorben?? Hail mactht uns verschiedene Orte ausfindig, von denen das Artefakt angezogen wurde.\n(43, 37) im Nebelmeer\n(38) Dolchwald (Jeksearhs alter Aufenthaltsort?)\n(39) Gipfel des Kupferkamms",
+        "description": "Bei dem Artefakt handelt es sich um das Gef\u00e4\u00df der Elemente. Das Artefakt ist auf Nacht eingestellt und somit verdorben. Nachdem wir die S\u00e4ulen zerst\u00f6rt haben, ist das Artefakt wieder im Geleichgewicht. Wer hat das Artefakt verdorben?? Hail macht uns verschiedene Orte ausfindig, von denen das Artefakt angezogen wurde.\n(43, 37) im Nebelmeer\n(38) Dolchwald (Jeksearhs alter Aufenthaltsort?)\n(39) Gipfel des Kupferkamms",
         "difficulty": 1,
         "id": "31",
         "name": "Ebene der Macht",
@@ -653,9 +654,9 @@
         ],
         "successors": [
             "37",
-            "38",
             "39",
-            "43"
+            "43",
+            "38"
         ]
     },
     {
@@ -705,33 +706,65 @@
     },
     {
         "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
+        "aim": "Reinigt alle Wasserpumpen",
+        "attempts": "",
+        "description": "",
         "difficulty": null,
         "id": "26",
-        "name": null,
+        "name": "Die alte Zisterne",
         "predecessors": [
             "18"
         ],
-        "requirements": [],
-        "rewards": [],
-        "successors": []
+        "requirements": [
+            {
+                "name": "Wasseratmung",
+                "status": 1,
+                "type": 1
+            },
+            {
+                "name": "Durch die Ruinen",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            ""
+        ]
     },
     {
-        "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
+        "achievements": [
+            {
+                "name": "Wasseratmung",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "T\u00f6tet vier Mal so viele Draken wie Charaktere in eurer Gruppe sind",
+        "attempts": "",
+        "description": "",
         "difficulty": null,
         "id": "43",
-        "name": null,
+        "name": "Drakennest",
         "predecessors": [
-            "18"
+            "18",
+            "31"
         ],
-        "requirements": [],
-        "rewards": [],
-        "successors": []
+        "requirements": [
+            {
+                "name": "Macht der Verbesserung",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            ""
+        ]
     },
     {
         "achievements": [],
@@ -758,6 +791,175 @@
         "name": null,
         "predecessors": [
             "16"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [
+            {
+                "name": "Jenseits der Kluft",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "aim": "Zerst\u00f6rt den Altar a",
+        "attempts": "1",
+        "description": "(46) Nachdem wir dei Br\u00fccke \u00fcberquert haben, k\u00f6nnen wir klar den weiteren Weg sehen\n(15) Ein Gebirgssee mit interessanten Steinkonstruktionen erregt unsere Aufmerksamkeit",
+        "difficulty": 0,
+        "id": "39",
+        "name": "T\u00fcckische Kluft",
+        "predecessors": [
+            "31"
+        ],
+        "requirements": [],
+        "rewards": [
+            "Je 10 Erfahrung"
+        ],
+        "successors": [
+            "15",
+            "46"
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "37",
+        "name": null,
+        "predecessors": [
+            "31"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "38",
+        "name": null,
+        "predecessors": [
+            "31"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [
+            {
+                "name": "Ende der Verderbtheit",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "T\u00f6tet den Gefl\u00fcgelten Schrecken",
+        "attempts": "1",
+        "description": "Am Gipfel des Kupferkamms finden wir einen D\u00e4mon. Als er stribt sehen wir (51)",
+        "difficulty": 0,
+        "id": "46",
+        "name": "Alptraumspitze",
+        "predecessors": [
+            "39"
+        ],
+        "requirements": [
+            {
+                "name": "Jenseits der Kluft",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "51"
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": "T\u00f6tet alle Gegner und erbeutet den Schatz",
+        "attempts": "",
+        "description": "Quest von Tinkerer. Aus Waldwichten wird eine Essenz hergestellt, um ein Dorf zu retten. Eine freundliche Quatryl baut uns mit der Essenz einen Kompass, der uns zu den notwendigen Heilpflanzen f\u00fchren sollte. Am Ende bemerken wir, die freundliche Quatryl hatte uns reingelegt und versucht dem Wald zu schaden.",
+        "difficulty": 1,
+        "id": "59",
+        "name": "Vergessener Hain",
+        "predecessors": [],
+        "requirements": [
+            {
+                "name": "Pers\u00f6nliche Quest \"Suche nach Heilung\"",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "60"
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": "Erbeutet alle Sch\u00e4tze und entkommt dem allen Charakteren durch den Eingang",
+        "attempts": "2",
+        "description": "Die Quatryl machte mit den Pflanzen Experimente, als die Universit\u00e4t dadurch in Flammen aufging.\nWir rennen in das brennende Haus und retten alle Pflanzen. Die Quatryl ist entkommen, aber sei es drum. Ich habe meine Pflanzen!\n\nDer Auftrag war schwrer als erwartet, weil die Gruppe stark unterschiedliche Level aufwies.",
+        "difficulty": 2,
+        "id": "60",
+        "name": "Alchemielabor",
+        "predecessors": [
+            "59"
+        ],
+        "requirements": [
+            {
+                "name": "Pers\u00f6nliche Quest \"Suche nach Heilung\"",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "rewards": [
+            "Quest \"Suche nach Heilung\" abgeschlossen",
+            "\u00d6ffnet Umschalg X",
+            "+1 Wohlstand"
+        ],
+        "successors": [
+            ""
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": "T\u00f6tet den arkanen Golem",
+        "attempts": "5",
+        "description": "Freigeschaltet durch zuf\u00e4lliges Szenario. Der Golem am Ende hat Intelligenz in der Bibliothek erlangt und gelernt, dass er ein seelenloses Monster ist und die Bib niemals verlassen kann.\n\nDer Beginn war sehr hart durch unz\u00e4hlige Monster, und fr\u00fche B\u00e4ren. Wir mussten eine extra Strategie entwickeln, um nicht sofort zu sterben. Im Teil 2 des Szenarios musste ein Raum mit vielen Fallen und schweres Gel\u00e4nde gemeistert werden, um dann im Anschluss einen Boss zu bek\u00e4mpfen. Sehr geil!",
+        "difficulty": 2,
+        "id": "67",
+        "name": "Arkane Bibliothek",
+        "predecessors": [],
+        "requirements": [],
+        "rewards": [
+            "\"Energiekern\" (Gegenstand 132)"
+        ],
+        "successors": [
+            ""
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "51",
+        "name": null,
+        "predecessors": [
+            "46"
         ],
         "requirements": [],
         "rewards": [],
