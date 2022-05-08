@@ -64,6 +64,20 @@ def init_window(manager: ScenarioManager) -> sg.Window:
             sg.Button("Visualisieren", key="-VISUALIZE_RENDER-"),
         ],
         [sg.Button("Alle Visualisieren", key="-VISUALIZE_RENDER_ALL-")],
+        [
+            sg.Text("Entdeckte Orte:", key="-PBAR_LOCATIONS_COUNT-", size=14),
+            sg.Text("%", key="-PBAR_LOCATIONS_PERCENTAGE-", s=11),
+            sg.ProgressBar(
+                config.COUNT_SCENARIOS, s=(ROW_WIDTH // 2, 12), key="-PBAR_LOCATIONS-"
+            ),
+        ],
+        [
+            sg.Text(f"Gespielte Szenarien:", key="-PBAR_PLAYED_COUNT-", size=14),
+            sg.Text("%", key="-PBAR_PLAYED_PERCENTAGE-", s=11),
+            sg.ProgressBar(
+                config.COUNT_SCENARIOS, s=(ROW_WIDTH // 2, 12), key="-PBAR_PLAYED-"
+            ),
+        ],
     ]
 
     achievements_layout = [
@@ -90,7 +104,11 @@ def init_window(manager: ScenarioManager) -> sg.Window:
             achievements_unique.append(achievement)
     achievements_unique = sorted(achievements_unique, key=lambda x: x.name)
     scenario_details_layout = [
-        [sg.Text("Nr.", s=TEXT_LEN), sg.In(key="-SCENARIO_ID-", s=IN_LEN)],
+        [
+            sg.Text("Nr.", s=TEXT_LEN),
+            sg.In(key="-SCENARIO_ID-", s=3),
+            sg.Checkbox("Gespielt", default=True, key="-SCENARIO_PLAYED-"),
+        ],
         [
             sg.Text("Name", s=TEXT_LEN),
             sg.In(key="-SCENARIO_NAME-", s=IN_LEN),
@@ -185,6 +203,19 @@ def init_window(manager: ScenarioManager) -> sg.Window:
     ).finalize()
 
 
+def update_pbar(window, manager):
+    window["-PBAR_LOCATIONS_PERCENTAGE-"].update(
+        f"{len(manager)}/{config.COUNT_SCENARIOS} ({100 * len(manager) / config.COUNT_SCENARIOS:.2f} %)"
+    )
+    window["-PBAR_LOCATIONS-"].update_bar(len(manager))
+
+    num_played = len([s for s in manager.values() if s.played])
+    window["-PBAR_PLAYED_PERCENTAGE-"].update(
+        f"{num_played}/{config.COUNT_SCENARIOS} ({100 * num_played / config.COUNT_SCENARIOS:.2f} %)"
+    )
+    window["-PBAR_PLAYED-"].update_bar(num_played)
+
+
 def get_scenario(window, values) -> Scenario:
     id = values["-SCENARIO_ID-"]
     name = values["-SCENARIO_NAME-"]
@@ -218,6 +249,7 @@ def get_scenario(window, values) -> Scenario:
                 achievements.append(achievement)
             else:
                 requirements.append(achievement)
+    played = values["-SCENARIO_PLAYED-"]
 
     return Scenario(
         id,
@@ -231,6 +263,7 @@ def get_scenario(window, values) -> Scenario:
         rewards,
         achievements,
         requirements,
+        played,
     )
 
 
@@ -244,12 +277,14 @@ def reset_scenario(window):
     window["-SCENARIO_ATTEMPTS-"].update("")
     window["-SCENARIO_DESCRIPTION-"].update("")
     window["-SCENARIO_REWARDS-"].update("")
+    window["-SCENARIO_PLAYED-"].update(True)
     [hide_achievement(window, i) for i in range(MAX_ACHIEVEMENTS)]
 
 
 def load_scenario(window, manager, scenario):
     reset_scenario(window)
     window["-SCENARIO_ID-"].update(scenario.id)
+    window["-SCENARIO_PLAYED-"].update(scenario.played)
     if scenario.name:
         window["-SCENARIO_NAME-"].update(scenario.name)
     if scenario.aim:
@@ -301,6 +336,8 @@ def hide_achievement(window, i):
 def main():
     manager = ScenarioManager.from_file(config.SCENARIO_DATABASE)
     window = init_window(manager)
+    update_pbar(window, manager)
+
     # Event Loop to process "events" and get the "values" of the inputs
     while True:
         event, values = window.read()
@@ -328,20 +365,19 @@ def main():
             unhide_achievement(window)
         elif isinstance(event, tuple) and event[0] == "-SCENARIO_ACHIEVEMENT_DEL-":
             hide_achievement(window, event[1])
-        elif event == "-SCENARIO_SAVE-":
+        elif event == "ControlS" or event == "-SCENARIO_SAVE-":
             scenario = get_scenario(window, values)
             manager[scenario.id] = scenario
             manager.to_file(config.SCENARIO_DATABASE)
+            update_pbar(window, manager)
         elif event == "-SCENARIO_DELETE-":
-            scenario_id = values["-SCENARIO_ID-"]
+            scenario_id = values["-SCENARIO_SELECTOR-"].split()[1]
             del manager.scenarios[scenario_id]
             manager.to_file(config.SCENARIO_DATABASE)
+            update_pbar(window, manager)
 
     window.close()
 
 
 if __name__ == "__main__":
     main()
-    # manager = ScenarioManager.from_file(config.SCENARIO_DATABASE)
-    #
-    # manager.render_tree(config.SCENARIO_TREE, "8", config.SCENARIO_TREE_FORMAT)

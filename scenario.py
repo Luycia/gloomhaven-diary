@@ -64,6 +64,7 @@ class Scenario:
     rewards: List[str] = field(default_factory=list)
     achievements: List[Achievement] = field(default_factory=list)
     requirements: List[Achievement] = field(default_factory=list)
+    played: bool = False
 
     def formatted(self):
         return f"Nr. {self.id} {self.name}\nVoraussetzungen: {self.requirements}\nZiel: {self.aim}\nVorgänger: {self.predecessors}\nNachfolger: {self.successors}\nSchwierigkeit: {self.difficulty.name if self.difficulty else None}, Versuche: {self.attempts}\nBelohnungen: {self.rewards}\nNeue Orte: {self.successors}\n{self.description}"
@@ -103,8 +104,8 @@ class ScenarioManager:
             node_attr={"color": "lightblue2", "style": "filled"},
             format=format,
         )
-        tree.attr(size="7,5")
 
+        tree.attr(size="7,5")
         for scenario in self.scenarios.values():
             if format != "svg":
                 tree.node(name=scenario.id, label=scenario.formatted())
@@ -114,6 +115,12 @@ class ScenarioManager:
                     label=scenario.short_formatted(),
                     tooltip=scenario.formatted(),
                 )
+
+            if not scenario.played:
+                # color node for better visuals
+                node_repr = tree.body[-1]
+                node_repr = node_repr[:-2] + " color=lemonchiffon2" + node_repr[-2:]
+                tree.body[-1] = node_repr
 
             for successor in scenario.successors:
                 if successor.isnumeric():
@@ -199,6 +206,9 @@ class ScenarioManager:
 
     def __setitem__(self, key, value):
         self.scenarios[key] = value
+
+    def __len__(self) -> int:
+        return len(self.scenarios)
 
     def keys(self):
         return sorted(self.scenarios.keys(), key=lambda x: int(x))

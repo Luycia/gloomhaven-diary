@@ -13,6 +13,7 @@
         "difficulty": 1,
         "id": "1",
         "name": "Schwarzgrab",
+        "played": true,
         "predecessors": [],
         "requirements": [],
         "rewards": [
@@ -30,6 +31,7 @@
         "difficulty": 1,
         "id": "2",
         "name": "Grabh\u00f6le",
+        "played": true,
         "predecessors": [
             "1"
         ],
@@ -58,11 +60,12 @@
             }
         ],
         "aim": "T\u00f6tet f\u00fcnf Mal so viele Gegner wie Charaktere in eurer Gruppe sind",
-        "attempts": null,
+        "attempts": "",
         "description": "Jekserah schickt uns Diamanten zu finden (9)\nWir lernen Argeise (Stadtwache) kennen und warnt uns vor Jekserah (8)",
         "difficulty": 1,
         "id": "3",
         "name": "Inox-Lager",
+        "played": true,
         "predecessors": [
             "2"
         ],
@@ -90,6 +93,7 @@
         "difficulty": 1,
         "id": "4",
         "name": "Krypta der Verdammten",
+        "played": true,
         "predecessors": [
             "2"
         ],
@@ -98,8 +102,8 @@
             ""
         ],
         "successors": [
-            "5",
-            "6"
+            "6",
+            "5"
         ]
     },
     {
@@ -116,9 +120,10 @@
         "difficulty": 0,
         "id": "8",
         "name": "Lagerhaus von Gloomhaven",
+        "played": true,
         "predecessors": [
-            "3",
-            "6"
+            "6",
+            "3"
         ],
         "requirements": [
             {
@@ -136,8 +141,8 @@
             "+2 Ansehen"
         ],
         "successors": [
-            "13",
             "7",
+            "13",
             "14"
         ]
     },
@@ -155,6 +160,7 @@
         "difficulty": null,
         "id": "9",
         "name": "Diamantenmine",
+        "played": false,
         "predecessors": [
             "3"
         ],
@@ -193,6 +199,7 @@
         "difficulty": 1,
         "id": "6",
         "name": "Faulige Krypta",
+        "played": true,
         "predecessors": [
             "4"
         ],
@@ -212,6 +219,7 @@
         "difficulty": 1,
         "id": "5",
         "name": "Unheilvolle Krypta",
+        "played": true,
         "predecessors": [
             "4"
         ],
@@ -220,8 +228,8 @@
             ""
         ],
         "successors": [
-            "10",
             "14",
+            "10",
             "19"
         ]
     },
@@ -233,6 +241,7 @@
         "difficulty": null,
         "id": "19",
         "name": null,
+        "played": false,
         "predecessors": [
             "5"
         ],
@@ -254,10 +263,11 @@
         "difficulty": null,
         "id": "14",
         "name": "Frostsenke",
+        "played": true,
         "predecessors": [
-            "18",
+            "8",
             "5",
-            "8"
+            "18"
         ],
         "requirements": [],
         "rewards": [
@@ -281,6 +291,7 @@
         "difficulty": 0,
         "id": "10",
         "name": "Ebene der Elementarm\u00e4chte",
+        "played": true,
         "predecessors": [
             "5"
         ],
@@ -307,6 +318,7 @@
         "difficulty": 1,
         "id": "13",
         "name": "Tempel des Sehers",
+        "played": false,
         "predecessors": [
             "8"
         ],
@@ -315,9 +327,9 @@
             ""
         ],
         "successors": [
-            "15",
+            "20",
             "17",
-            "20"
+            "15"
         ]
     },
     {
@@ -328,9 +340,10 @@
         "difficulty": 1,
         "id": "15",
         "name": "Schrein der St\u00e4rke",
+        "played": true,
         "predecessors": [
-            "13",
-            "39"
+            "39",
+            "13"
         ],
         "requirements": [],
         "rewards": [
@@ -348,6 +361,7 @@
         "difficulty": null,
         "id": "17",
         "name": null,
+        "played": false,
         "predecessors": [
             "13"
         ],
@@ -363,9 +377,10 @@
         "difficulty": 1,
         "id": "20",
         "name": "Versteck der Nekromantin",
+        "played": true,
         "predecessors": [
-            "13",
-            "7"
+            "7",
+            "13"
         ],
         "requirements": [
             {
@@ -380,9 +395,9 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "18",
+            "28",
             "16",
-            "28"
+            "18"
         ]
     },
     {
@@ -393,6 +408,7 @@
         "difficulty": 1,
         "id": "7",
         "name": "\u00dcppige Grotte",
+        "played": true,
         "predecessors": [
             "8"
         ],
@@ -423,6 +439,7 @@
         "difficulty": null,
         "id": "12",
         "name": null,
+        "played": false,
         "predecessors": [
             "9"
         ],
@@ -438,6 +455,7 @@
         "difficulty": null,
         "id": "11",
         "name": null,
+        "played": false,
         "predecessors": [
             "9"
         ],
@@ -459,6 +477,7 @@
         "difficulty": 1,
         "id": "22",
         "name": "Tempel der Elemente",
+        "played": true,
         "predecessors": [
             "10"
         ],
@@ -497,6 +516,7 @@
         "difficulty": 1,
         "id": "21",
         "name": "H\u00f6llenthron",
+        "played": true,
         "predecessors": [
             "10"
         ],
@@ -524,6 +544,7 @@
         "difficulty": 2,
         "id": "18",
         "name": "Verlassene Kanalisation",
+        "played": true,
         "predecessors": [
             "20"
         ],
@@ -546,6 +567,7 @@
         "difficulty": 1,
         "id": "16",
         "name": "Gebirgspass",
+        "played": true,
         "predecessors": [
             "20"
         ],
@@ -572,6 +594,7 @@
         "difficulty": 1,
         "id": "28",
         "name": "\u00c4u\u00dfere Ritualkammer",
+        "played": true,
         "predecessors": [
             "20"
         ],
@@ -603,6 +626,7 @@
         "difficulty": 2,
         "id": "29",
         "name": "Heiligtum des Grauens",
+        "played": true,
         "predecessors": [
             "28"
         ],
@@ -634,6 +658,7 @@
         "difficulty": 1,
         "id": "31",
         "name": "Ebene der Macht",
+        "played": true,
         "predecessors": [
             "22"
         ],
@@ -655,8 +680,8 @@
         "successors": [
             "37",
             "39",
-            "43",
-            "38"
+            "38",
+            "43"
         ]
     },
     {
@@ -667,6 +692,7 @@
         "difficulty": null,
         "id": "35",
         "name": null,
+        "played": false,
         "predecessors": [
             "22"
         ],
@@ -682,6 +708,7 @@
         "difficulty": null,
         "id": "36",
         "name": null,
+        "played": false,
         "predecessors": [
             "22"
         ],
@@ -697,6 +724,7 @@
         "difficulty": null,
         "id": "23",
         "name": null,
+        "played": false,
         "predecessors": [
             "18"
         ],
@@ -712,6 +740,7 @@
         "difficulty": null,
         "id": "26",
         "name": "Die alte Zisterne",
+        "played": false,
         "predecessors": [
             "18"
         ],
@@ -743,14 +772,15 @@
             }
         ],
         "aim": "T\u00f6tet vier Mal so viele Draken wie Charaktere in eurer Gruppe sind",
-        "attempts": "",
-        "description": "",
-        "difficulty": null,
+        "attempts": "1",
+        "description": "Nach dem Abmetzeln der Draken stellt uns Hail blaue Kugeln zur Wasseratmung her.",
+        "difficulty": 0,
         "id": "43",
         "name": "Drakennest",
+        "played": true,
         "predecessors": [
-            "18",
-            "31"
+            "31",
+            "18"
         ],
         "requirements": [
             {
@@ -767,19 +797,31 @@
         ]
     },
     {
-        "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "achievements": [
+            {
+                "name": "Befehl des Draken",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "aim": "Alle Charaktere m\u00fcssen durch den Ausgang a entkommen",
+        "attempts": "1",
+        "description": "Wir finden einen gewaltigen Draken auf dem Gipfel.\n(33) Wir sollen dem Draken helfen, von Savas gestohlene Flammendr\u00fcsen wiederzuholem\n(34) Wir t\u00f6ten den Draken",
+        "difficulty": 1,
         "id": "25",
-        "name": null,
+        "name": "Aufsteig zur Eisklippe",
+        "played": true,
         "predecessors": [
             "16"
         ],
         "requirements": [],
-        "rewards": [],
-        "successors": []
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "33",
+            "34"
+        ]
     },
     {
         "achievements": [],
@@ -789,6 +831,7 @@
         "difficulty": null,
         "id": "24",
         "name": null,
+        "played": false,
         "predecessors": [
             "16"
         ],
@@ -810,6 +853,7 @@
         "difficulty": 0,
         "id": "39",
         "name": "T\u00fcckische Kluft",
+        "played": true,
         "predecessors": [
             "31"
         ],
@@ -818,8 +862,8 @@
             "Je 10 Erfahrung"
         ],
         "successors": [
-            "15",
-            "46"
+            "46",
+            "15"
         ]
     },
     {
@@ -830,6 +874,7 @@
         "difficulty": null,
         "id": "37",
         "name": null,
+        "played": false,
         "predecessors": [
             "31"
         ],
@@ -845,6 +890,7 @@
         "difficulty": null,
         "id": "38",
         "name": null,
+        "played": false,
         "predecessors": [
             "31"
         ],
@@ -866,6 +912,7 @@
         "difficulty": 0,
         "id": "46",
         "name": "Alptraumspitze",
+        "played": true,
         "predecessors": [
             "39"
         ],
@@ -891,6 +938,7 @@
         "difficulty": 1,
         "id": "59",
         "name": "Vergessener Hain",
+        "played": true,
         "predecessors": [],
         "requirements": [
             {
@@ -914,6 +962,7 @@
         "difficulty": 2,
         "id": "60",
         "name": "Alchemielabor",
+        "played": true,
         "predecessors": [
             "59"
         ],
@@ -941,6 +990,7 @@
         "difficulty": 2,
         "id": "67",
         "name": "Arkane Bibliothek",
+        "played": true,
         "predecessors": [],
         "requirements": [],
         "rewards": [
@@ -958,8 +1008,93 @@
         "difficulty": null,
         "id": "51",
         "name": null,
+        "played": false,
         "predecessors": [
             "46"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [
+            {
+                "name": "Befehl des Draken",
+                "status": 0,
+                "type": 0
+            },
+            {
+                "name": "Erlegter Draken",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "T\u00f6tet den Drakenf\u00fcrsten",
+        "attempts": "2",
+        "description": "Wir t\u00f6ten den Drakenf\u00fcrst. Er beschw\u00f6rte nervige kleine Zephyre, die den Sonnenw\u00e4chter traurigerweise einkesselten, bis zu seinem Elend. In Gloomhaven erwartete uns kein gro\u00dfer Triumpf. Belastend.",
+        "difficulty": 1,
+        "id": "34",
+        "name": "Versengter Gipfel",
+        "played": true,
+        "predecessors": [
+            "25"
+        ],
+        "requirements": [
+            {
+                "name": "Befehl des Draken",
+                "status": 1,
+                "type": 0
+            },
+            {
+                "name": "Hilfe f\u00fcr den Draken",
+                "status": 0,
+                "type": 1
+            }
+        ],
+        "rewards": [
+            "Je 20 Gold",
+            "+2 Ansehen",
+            "+1 Wohlstand"
+        ],
+        "successors": [
+            ""
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": "T\u00f6tet den Fahlen",
+        "attempts": "2",
+        "description": "Zufallsszenario: Ein Aesther beschreibt uns einen Weg zu einem Tempel voller D\u00e4monen. Wir t\u00f6ten den D\u00e4mon.\n\nWir mussten das Szenario erneut machen, um die Truhe zu holen, lul.",
+        "difficulty": 1,
+        "id": "81",
+        "name": "Tempel des Zwielichts",
+        "played": true,
+        "predecessors": [],
+        "requirements": [
+            {
+                "name": "Macht der Verbesserung",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "rewards": [
+            "Je 10 Erfahrung"
+        ],
+        "successors": [
+            ""
+        ]
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "33",
+        "name": null,
+        "played": false,
+        "predecessors": [
+            "25"
         ],
         "requirements": [],
         "rewards": [],
