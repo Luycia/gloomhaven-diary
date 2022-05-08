@@ -159,7 +159,6 @@ def init_window(manager: ScenarioManager) -> sg.Window:
             sg.Button("Löschen", key="-SCENARIO_DELETE-", s=6),
         ],
         [
-            sg.Button("Neu", key="-SCENARIO_NEW-", s=10),
             sg.Button("Zurücksetzen", key="-SCENARIO_RESET-", s=10),
             sg.Button("Speichern", key="-SCENARIO_SAVE-", s=10),
         ],
@@ -329,7 +328,7 @@ def main():
             unhide_achievement(window)
         elif isinstance(event, tuple) and event[0] == "-SCENARIO_ACHIEVEMENT_DEL-":
             hide_achievement(window, event[1])
-        elif event == "-SCENARIO_SAVE-" or event == "-SCENARIO_NEW-":
+        elif event == "-SCENARIO_SAVE-":
             scenario = get_scenario(window, values)
             manager[scenario.id] = scenario
             manager.to_file(config.SCENARIO_DATABASE)

@@ -45,8 +45,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "4",
-            "3"
+            "3",
+            "4"
         ]
     },
     {
@@ -78,8 +78,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "9",
-            "8"
+            "8",
+            "9"
         ]
     },
     {
@@ -117,8 +117,8 @@
         "id": "8",
         "name": "Lagerhaus von Gloomhaven",
         "predecessors": [
-            "6",
-            "3"
+            "3",
+            "6"
         ],
         "requirements": [
             {
@@ -136,9 +136,9 @@
             "+2 Ansehen"
         ],
         "successors": [
+            "7",
             "14",
-            "13",
-            "7"
+            "13"
         ]
     },
     {
@@ -170,8 +170,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "11",
-            "12"
+            "12",
+            "11"
         ]
     },
     {
@@ -220,9 +220,9 @@
             ""
         ],
         "successors": [
-            "19",
             "14",
-            "10"
+            "10",
+            "19"
         ]
     },
     {
@@ -315,8 +315,8 @@
             ""
         ],
         "successors": [
-            "17",
             "20",
+            "17",
             "15"
         ]
     },
@@ -363,8 +363,8 @@
         "id": "20",
         "name": "Versteck der Nekromantin",
         "predecessors": [
-            "13",
-            "7"
+            "7",
+            "13"
         ],
         "requirements": [
             {
@@ -477,9 +477,9 @@
             ""
         ],
         "successors": [
-            "31",
+            "36",
             "35",
-            "36"
+            "31"
         ]
     },
     {
@@ -531,10 +531,10 @@
             ""
         ],
         "successors": [
-            "14",
-            "26",
+            "23",
             "43",
-            "23"
+            "14",
+            "26"
         ]
     },
     {
@@ -589,34 +589,74 @@
         ]
     },
     {
-        "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "achievements": [
+            {
+                "name": "Am Rand der Finsternis",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "T\u00f6tet alle Gegner",
+        "attempts": "2",
+        "description": "Das Grauen hat uns zwar eingeladen, jedoch ist es uns wohl noch b\u00f6se gegen\u00fcber eingestimmt. Aber am Ende entkommt es uns und warnt uns auf ein baldiges Wiedersehen vor.\n\nDer Inox-Barbar ist hier fr\u00fchzeitig nach einer gro\u00dfen AoE gestorben, w\u00e4hrend der Sonnew\u00e4chter mit Ausdauer sich durch die letzten Diener metzelt.",
+        "difficulty": 2,
         "id": "29",
-        "name": null,
+        "name": "Heiligtum des Grauens",
         "predecessors": [
             "28"
         ],
-        "requirements": [],
-        "rewards": [],
-        "successors": []
+        "requirements": [
+            {
+                "name": "Eine Einladung",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "rewards": [
+            "Je 15 Erfahrung"
+        ],
+        "successors": [
+            ""
+        ]
     },
     {
-        "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "achievements": [
+            {
+                "name": "Artefakt: gel\u00e4utert",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "Zerst\u00f6rt die Felss\u00e4ule a",
+        "attempts": "",
+        "description": "Bei dem Artefakt handelt es sich um das Gef\u00e4\u00df der Elemente. Das Artefakt ist auf Nacht eingestellt und somit verdorben. Nachdem wir die S\u00e4ulen zerst\u00f6rt haben, ist das Artefakt wieder im Geleichgewicht. Wer hat das Artefakt verdorben?? Hail mactht uns verschiedene Orte ausfindig, von denen das Artefakt angezogen wurde.\n(43, 37) im Nebelmeer\n(38) Dolchwald (Jeksearhs alter Aufenthaltsort?)\n(39) Gipfel des Kupferkamms",
+        "difficulty": 1,
         "id": "31",
-        "name": null,
+        "name": "Ebene der Macht",
         "predecessors": [
             "22"
         ],
-        "requirements": [],
-        "rewards": [],
-        "successors": []
+        "requirements": [
+            {
+                "name": "Artefakt: geborgen",
+                "status": 1,
+                "type": 1
+            },
+            {
+                "name": "Macht der Verbesserung",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "37",
+            "38",
+            "39",
+            "43"
+        ]
     },
     {
         "achievements": [],
