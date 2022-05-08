@@ -45,8 +45,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "3",
-            "4"
+            "4",
+            "3"
         ]
     },
     {
@@ -86,7 +86,7 @@
         "achievements": [],
         "aim": "T\u00f6tet alle Genger",
         "attempts": "",
-        "description": "Unter den Schriften finden wir zwei Orte der Macht\n(5) Machenschaften zerst\u00f6ren\n(6) Kultisten helfen",
+        "description": "Unter den Schriften finden wir zwei Orte der Macht\n(5) Machenschaften zerst\u00f6ren und herausfinden, was diese planen\n(6) Kultisten helfen, die Untoten zur\u00fcckzutreiben",
         "difficulty": 1,
         "id": "4",
         "name": "Krypta der Verdammten",
@@ -98,8 +98,8 @@
             ""
         ],
         "successors": [
-            "6",
-            "5"
+            "5",
+            "6"
         ]
     },
     {
@@ -117,8 +117,8 @@
         "id": "8",
         "name": "Lagerhaus von Gloomhaven",
         "predecessors": [
-            "3",
-            "6"
+            "6",
+            "3"
         ],
         "requirements": [
             {
@@ -136,8 +136,8 @@
             "+2 Ansehen"
         ],
         "successors": [
-            "13",
             "14",
+            "13",
             "7"
         ]
     },
@@ -220,9 +220,9 @@
             ""
         ],
         "successors": [
+            "19",
             "14",
-            "10",
-            "19"
+            "10"
         ]
     },
     {
@@ -255,8 +255,9 @@
         "id": "14",
         "name": "Frostsenke",
         "predecessors": [
-            "8",
-            "5"
+            "5",
+            "18",
+            "8"
         ],
         "requirements": [],
         "rewards": [
@@ -294,8 +295,8 @@
             ""
         ],
         "successors": [
-            "22",
-            "21"
+            "21",
+            "22"
         ]
     },
     {
@@ -314,9 +315,9 @@
             ""
         ],
         "successors": [
+            "17",
             "20",
-            "15",
-            "17"
+            "15"
         ]
     },
     {
@@ -444,64 +445,117 @@
         "successors": []
     },
     {
-        "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "achievements": [
+            {
+                "name": "Artefakt: geborgen",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "Zerst\u00f6rt alle Alt\u00e4re",
+        "attempts": "",
+        "description": "Wir suchen nach dem Artefakt und finden Kultisten, die dem Grauen dienen.\nWir finden das Artefakt, aber es scheint verdorben.\n(35) F\u00fcr das B\u00f6se k\u00e4mpfen\n(36) F\u00fcr das Gute k\u00e4mpfen\n(14, 31) Einem Magier \u00fcbergeben (Hail)",
+        "difficulty": 1,
         "id": "22",
-        "name": null,
+        "name": "Tempel der Elemente",
         "predecessors": [
             "10"
         ],
-        "requirements": [],
-        "rewards": [],
-        "successors": []
+        "requirements": [
+            {
+                "name": "D\u00e4monischer Auftrag",
+                "status": 1,
+                "type": 0
+            },
+            {
+                "name": "Hinweise folgen",
+                "status": 1,
+                "type": 0
+            }
+        ],
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "31",
+            "35",
+            "36"
+        ]
     },
     {
-        "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "achievements": [
+            {
+                "name": "Riss neutralisiert",
+                "status": 1,
+                "type": 1
+            }
+        ],
+        "aim": "T\u00f6tet den Erzd\u00e4mon",
+        "attempts": "",
+        "description": "Wir t\u00f6ten den Erzd\u00e4mon. Dieser teleportiert sich \u00fcber den gesamten Raum. Am Ende erfolglos. Wir neutralisieren damit den enstandenen Riss.",
+        "difficulty": 1,
         "id": "21",
-        "name": null,
+        "name": "H\u00f6llenthron",
         "predecessors": [
             "10"
         ],
-        "requirements": [],
-        "rewards": [],
-        "successors": []
+        "requirements": [
+            {
+                "name": "Riss neutralisiert",
+                "status": 0,
+                "type": 1
+            }
+        ],
+        "rewards": [
+            "Je 50 Gold",
+            "+1 Wohlstand",
+            "F\u00fcgt dem Deck Stadt-Ereignis 78 hinzu."
+        ],
+        "successors": [
+            ""
+        ]
     },
     {
         "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "aim": "T\u00f6tet alle Gegner",
+        "attempts": "3",
+        "description": "Wir untersuchen die Kanalisation von Gloomhaven. Diese sei vergiftet. Wir finden v.a. Schleim, sich teilender Schleim ...\nDie Ratzen scheinen nicht der Grund f\u00fcr den Schleim zu sein und leben hier nur im Schutz vor den Wachen\n(23) Weiter den Pfad folgen und herausfinden, woher das Gift kommt\n(26) In die Quelle der Zisterne eindringen (ben\u00f6tigt 14, 43)",
+        "difficulty": 2,
         "id": "18",
-        "name": null,
+        "name": "Verlassene Kanalisation",
         "predecessors": [
             "20"
         ],
         "requirements": [],
-        "rewards": [],
-        "successors": []
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "14",
+            "26",
+            "43",
+            "23"
+        ]
     },
     {
         "achievements": [],
-        "aim": null,
-        "attempts": null,
-        "description": null,
-        "difficulty": null,
+        "aim": "T\u00f6tet alle Gegner",
+        "attempts": "",
+        "description": "Wir sind auf dem Weg den Drachen zu finden. Dort finden wir Inox mit D\u00e4monen und einen Zettel, der auf eine \"Stimme\" hindeutet?\n(25) weiter den Berg erklimmen\n(24) die H\u00f6hle der Inox weiter erkunden",
+        "difficulty": 1,
         "id": "16",
-        "name": null,
+        "name": "Gebirgspass",
         "predecessors": [
             "20"
         ],
         "requirements": [],
-        "rewards": [],
-        "successors": []
+        "rewards": [
+            ""
+        ],
+        "successors": [
+            "24",
+            "25"
+        ]
     },
     {
         "achievements": [
@@ -533,5 +587,140 @@
         "successors": [
             "29"
         ]
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "29",
+        "name": null,
+        "predecessors": [
+            "28"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "31",
+        "name": null,
+        "predecessors": [
+            "22"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "35",
+        "name": null,
+        "predecessors": [
+            "22"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "36",
+        "name": null,
+        "predecessors": [
+            "22"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "23",
+        "name": null,
+        "predecessors": [
+            "18"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "26",
+        "name": null,
+        "predecessors": [
+            "18"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "43",
+        "name": null,
+        "predecessors": [
+            "18"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "25",
+        "name": null,
+        "predecessors": [
+            "16"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
+    },
+    {
+        "achievements": [],
+        "aim": null,
+        "attempts": null,
+        "description": null,
+        "difficulty": null,
+        "id": "24",
+        "name": null,
+        "predecessors": [
+            "16"
+        ],
+        "requirements": [],
+        "rewards": [],
+        "successors": []
     }
 ]

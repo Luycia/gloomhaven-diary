@@ -13,7 +13,7 @@ from scenario import (
 )
 
 APP_NAME = "Gloomhaven - Diary"
-ROW_WIDTH = 60
+ROW_WIDTH = 65
 FONT_SIZE = {"default": 13, "h1": 28, "h2": 22}
 MAX_ACHIEVEMENTS = 5
 
@@ -28,6 +28,18 @@ def achievement_layout(i):
         sg.OptionMenu(
             values=[a.name for a in AchievementStatus],
             key=("-SCENARIO_ACHIEVEMENT_STATUS-", i),
+        ),
+        sg.Radio(
+            "E",
+            group_id=("SCENARIO_ACHIEVEMENT_CHECK", i),
+            default=True,
+            key=("-SCENARIO_ACHIEVEMENT_CHECK_A-", i),
+        ),
+        sg.Radio(
+            "V",
+            group_id=("SCENARIO_ACHIEVEMENT_CHECK", i),
+            default=False,
+            key=("-SCENARIO_ACHIEVEMENT_CHECK_R-", i),
         ),
         sg.Button(
             image_filename="assets/images/trash.png",
@@ -192,6 +204,7 @@ def get_scenario(window, values) -> Scenario:
     attempts = values["-SCENARIO_ATTEMPTS-"]
     description = values["-SCENARIO_DESCRIPTION-"]
     rewards = values["-SCENARIO_REWARDS-"].split("\n")
+    requirements = values["-SCENARIO_REQUIREMENTS-"]
     achievements = []
     for i in range(MAX_ACHIEVEMENTS):
         if window[("-SCENARIO_ACHIEVEMENT-", i)].visible:
@@ -202,8 +215,10 @@ def get_scenario(window, values) -> Scenario:
                 AchievementType[type],
                 AchievementStatus[status],
             )
-            achievements.append(achievement)
-    requirements = values["-SCENARIO_REQUIREMENTS-"]
+            if values[("-SCENARIO_ACHIEVEMENT_CHECK_A-"), i]:
+                achievements.append(achievement)
+            else:
+                requirements.append(achievement)
 
     return Scenario(
         id,
@@ -252,10 +267,12 @@ def load_scenario(window, manager, scenario):
     if scenario.description:
         window["-SCENARIO_DESCRIPTION-"].update(scenario.description)
     window["-SCENARIO_REWARDS-"].update("\n".join(scenario.rewards))
-    reqirements_list = window["-SCENARIO_REQUIREMENTS-"]
-    reqirements_list.update(
+    requirements_list = window["-SCENARIO_REQUIREMENTS-"]
+    requirements_list.update(
         set_to_index=[
-            reqirements_list.Values.index(req) for req in scenario.requirements
+            requirements_list.Values.index(req)
+            for req in scenario.requirements
+            if req in requirements_list.Values
         ]
     )
 
@@ -278,22 +295,8 @@ def hide_achievement(window, i):
     elem = window[("-SCENARIO_ACHIEVEMENT-", i)]
     elem.update(visible=False)
     window[("-SCENARIO_ACHIEVEMENT_NAME-", i)].update("")
-
-
-def add_achievement_layout(i):
-    return [
-        [
-            sg.In(s=int(ROW_WIDTH * 0.55), key=("-SCENARIO_ACHIEVEMENT_NAME-", i)),
-            sg.OptionMenu(
-                values=[a.name for a in AchievementType],
-                key=("-SCENARIO_ACHIEVEMENT_TYPE-", i),
-            ),
-            sg.OptionMenu(
-                values=[a.name for a in AchievementStatus],
-                key=("-SCENARIO_ACHIEVEMENT_STATUS-", i),
-            ),
-        ]
-    ]
+    window[("-SCENARIO_ACHIEVEMENT_CHECK_A-", i)].update(True)
+    window[("-SCENARIO_ACHIEVEMENT_CHECK_R-", i)].update(False)
 
 
 def main():
