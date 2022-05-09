@@ -34,6 +34,7 @@ class AchievementStatus(Enum):
     CLOSED = 1
 
 
+@dataclass_json
 @dataclass
 class Achievement:
     name: str
@@ -47,7 +48,7 @@ class Achievement:
         return self.__str__()
 
     def __hash__(self) -> int:
-        return super.__hash__((self.name, self.type.name, self.status.name))
+        return hash((self.name, self.type.name, self.status.name))
 
 
 @dataclass_json
@@ -74,9 +75,30 @@ class Scenario:
 
 
 class ScenarioManager:
-    def __init__(self, scenarios: Dict[str, Scenario]) -> None:
+    def __init__(
+        self, scenarios: Dict[str, Scenario], world_status: List[Achievement]
+    ) -> None:
         self.scenarios = scenarios
+        self.world_status = world_status
+        self.achievements = self.__all_achievements()
         self.__link_scenarios()
+
+    def __all_achievements(self):
+        achievements = set(
+            [
+                achievement
+                for scenario in self.scenarios.values()
+                for achievement in scenario.achievements
+            ]
+        )
+        requirements = set(
+            [
+                requirement
+                for scenario in self.scenarios.values()
+                for requirement in scenario.requirements
+            ]
+        )
+        return list(achievements.union(requirements).union(self.world_status))
 
     def __link_scenarios(self):
         new_scenarios = []
@@ -97,6 +119,28 @@ class ScenarioManager:
         for scenario in new_scenarios:
             self.scenarios[scenario.id] = scenario
 
+    def add_scenario(self, scenario: Scenario) -> None:
+        if not scenario:
+            return
+        self.scenarios[scenario.id] = scenario
+        for achievement in scenario.achievements:
+            if achievement not in self.achievements:
+                self.achievements.append(achievement)
+        for requirement in scenario.requirements:
+            if requirement not in self.achievements:
+                self.achievements.append(requirement)
+
+    def remove_scenario(self, scenario_id: str) -> None:
+        del self.scenarios[scenario_id]
+        self.achievements = self.__all_achievements()
+
+    def add_world_status(self, achievement: Achievement) -> None:
+        if achievement not in self.world_status:
+            self.world_status.append(achievement)
+
+    def remove_world_status(self, achievement: Achievement) -> None:
+        self.world_status.remove(achievement)
+
     def render_tree(self, output_path: str, format: str = "pdf"):
         tree = graphviz.Digraph(
             "scenario-tree",
@@ -106,6 +150,7 @@ class ScenarioManager:
         )
 
         tree.attr(size="7,5")
+        edges = {}
         for scenario in self.scenarios.values():
             if format != "svg":
                 tree.node(name=scenario.id, label=scenario.formatted())
@@ -118,13 +163,28 @@ class ScenarioManager:
 
             if not scenario.played:
                 # color node for better visuals
+                if any(req in self.world_status for req in scenario.requirements):
+                    color = "lightgreen"
+                else:
+                    color = "lavenderblush3"
+
                 node_repr = tree.body[-1]
-                node_repr = node_repr[:-2] + " color=lemonchiffon2" + node_repr[-2:]
+                node_repr = node_repr[:-2] + f" color={color}" + node_repr[-2:]
                 tree.body[-1] = node_repr
 
+                # also show its requirements
+                for requirement in scenario.requirements:
+                    for pre in self.scenarios.values():
+                        if requirement in pre.achievements:
+                            edges[(pre.id, scenario.id)] = str(requirement)
+
             for successor in scenario.successors:
-                if successor.isnumeric():
-                    tree.edge(scenario.id, successor)
+                if successor.isnumeric() and successor:
+                    if (scenario.id, successor) not in edges:
+                        edges[(scenario.id, successor)] = None
+
+        for (e_from, e_to), label in edges.items():
+            tree.edge(e_from, e_to, label=label)
 
         tree.view()
 
@@ -223,7 +283,14 @@ class ScenarioManager:
         return self.scenarios.items()
 
     def to_json(self):
-        return [json.loads(scenario.to_json()) for scenario in self.scenarios.values()]
+        data = {}
+        data["world_status"] = [
+            json.loads(status.to_json()) for status in self.world_status
+        ]
+        data["scenarios"] = [
+            json.loads(scenario.to_json()) for scenario in self.scenarios.values()
+        ]
+        return data
 
     def to_file(self, path: str) -> None:
         with open(path, "w") as f:
@@ -233,8 +300,13 @@ class ScenarioManager:
     def from_file(path: str) -> ScenarioManager:
         warnings.filterwarnings("ignore")
         with open(path) as f:
+            data = json.load(f)
+            world_status = [
+                Achievement.from_json(json.dumps(status))
+                for status in data["world_status"]
+            ]
             scenarios = {
                 scenario["id"]: Scenario.from_json(json.dumps(scenario))
-                for scenario in json.load(f)
+                for scenario in data["scenarios"]
             }
-        return ScenarioManager(scenarios)
+        return ScenarioManager(scenarios, world_status)

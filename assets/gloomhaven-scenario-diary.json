@@ -47,8 +47,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "3",
-            "4"
+            "4",
+            "3"
         ]
     },
     {
@@ -141,9 +141,9 @@
             "+2 Ansehen"
         ],
         "successors": [
+            "14",
             "7",
-            "13",
-            "14"
+            "13"
         ]
     },
     {
@@ -176,8 +176,8 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "11",
-            "12"
+            "12",
+            "11"
         ]
     },
     {
@@ -265,9 +265,9 @@
         "name": "Frostsenke",
         "played": true,
         "predecessors": [
-            "8",
+            "18",
             "5",
-            "18"
+            "8"
         ],
         "requirements": [],
         "rewards": [
@@ -318,7 +318,7 @@
         "difficulty": 1,
         "id": "13",
         "name": "Tempel des Sehers",
-        "played": false,
+        "played": true,
         "predecessors": [
             "8"
         ],
@@ -395,9 +395,9 @@
             "+1 Wohlstand"
         ],
         "successors": [
-            "28",
+            "18",
             "16",
-            "18"
+            "28"
         ]
     },
     {
@@ -553,9 +553,9 @@
             ""
         ],
         "successors": [
-            "23",
             "14",
             "43",
+            "23",
             "26"
         ]
     },
@@ -779,8 +779,8 @@
         "name": "Drakennest",
         "played": true,
         "predecessors": [
-            "31",
-            "18"
+            "18",
+            "31"
         ],
         "requirements": [
             {

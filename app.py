@@ -1,6 +1,7 @@
 import config
 import PySimpleGUI as sg
 from tkinter import messagebox
+from typing import List, Dict
 
 from scenario import (
     Achievement,
@@ -24,10 +25,12 @@ def achievement_layout(i):
         sg.OptionMenu(
             values=[a.name for a in AchievementType],
             key=("-SCENARIO_ACHIEVEMENT_TYPE-", i),
+            default_value=AchievementType.GROUP.name,
         ),
         sg.OptionMenu(
             values=[a.name for a in AchievementStatus],
             key=("-SCENARIO_ACHIEVEMENT_STATUS-", i),
+            default_value=AchievementStatus.CLOSED.name,
         ),
         sg.Radio(
             "E",
@@ -42,7 +45,7 @@ def achievement_layout(i):
             key=("-SCENARIO_ACHIEVEMENT_CHECK_R-", i),
         ),
         sg.Button(
-            image_filename="assets/images/trash.png",
+            image_filename="./assets/images/trash.png",
             key=("-SCENARIO_ACHIEVEMENT_DEL-", i),
         ),
     ]
@@ -53,7 +56,9 @@ def init_window(manager: ScenarioManager) -> sg.Window:
     TEXT_LEN = 14
     IN_LEN = ROW_WIDTH - TEXT_LEN
 
-    visualize_layout = [
+    achievements = sorted(manager.achievements, key=lambda x: x.name)
+
+    general_layout = [
         [
             sg.Text("Szenario auswählen"),
             sg.OptionMenu(
@@ -63,7 +68,10 @@ def init_window(manager: ScenarioManager) -> sg.Window:
             ),
             sg.Button("Visualisieren", key="-VISUALIZE_RENDER-"),
         ],
-        [sg.Button("Alle Visualisieren", key="-VISUALIZE_RENDER_ALL-")],
+        [
+            sg.Button("Alle Visualisieren", key="-VISUALIZE_RENDER_ALL-"),
+            sg.Button("Speichern", key="-GENERAL_SAVE-", s=10),
+        ],
         [
             sg.Text("Entdeckte Orte:", key="-PBAR_LOCATIONS_COUNT-", size=14),
             sg.Text("%", key="-PBAR_LOCATIONS_PERCENTAGE-", s=11),
@@ -78,6 +86,30 @@ def init_window(manager: ScenarioManager) -> sg.Window:
                 config.COUNT_SCENARIOS, s=(ROW_WIDTH // 2, 12), key="-PBAR_PLAYED-"
             ),
         ],
+        [sg.Text("Welt - Status")],
+        [
+            sg.Listbox(
+                achievements,
+                no_scrollbar=True,
+                key="-GENERAL_WORLD_STATUS-",
+                s=(IN_LEN, min(len(achievements), 20)),
+                select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE,
+                default_values=manager.world_status,
+            ),
+        ],
+        [
+            sg.In(s=int(ROW_WIDTH * 0.45), key="-GENERAL_WORLD_STATUS_NAME-"),
+            sg.OptionMenu(
+                values=[a.name for a in AchievementType],
+                key="-GENERAL_WORLD_STATUS_TYPE-",
+                default_value=AchievementType.GROUP.name,
+            ),
+            sg.OptionMenu(
+                values=[a.name for a in AchievementStatus],
+                key="-GENERAL_WORLD_STATUS_STATUS-",
+                default_value=AchievementStatus.CLOSED.name,
+            ),
+        ],
     ]
 
     achievements_layout = [
@@ -89,20 +121,7 @@ def init_window(manager: ScenarioManager) -> sg.Window:
         )
         for i in range(MAX_ACHIEVEMENTS)
     ]
-    achievements = [
-        achievement
-        for scenario in manager.values()
-        for achievement in scenario.achievements
-    ] + [
-        requirement
-        for scenario in manager.values()
-        for requirement in scenario.requirements
-    ]
-    achievements_unique = []
-    for achievement in achievements:
-        if achievement not in achievements_unique:
-            achievements_unique.append(achievement)
-    achievements_unique = sorted(achievements_unique, key=lambda x: x.name)
+
     scenario_details_layout = [
         [
             sg.Text("Nr.", s=TEXT_LEN),
@@ -117,8 +136,8 @@ def init_window(manager: ScenarioManager) -> sg.Window:
         [
             sg.Text("Voraussetzungen", s=TEXT_LEN),
             sg.Listbox(
-                values=achievements_unique,
-                s=(IN_LEN, min(len(achievements_unique), 5)),
+                values=achievements,
+                s=(IN_LEN, min(len(achievements), 5)),
                 select_mode=sg.LISTBOX_SELECT_MODE_MULTIPLE,
                 key="-SCENARIO_REQUIREMENTS-",
                 no_scrollbar=True,
@@ -177,8 +196,9 @@ def init_window(manager: ScenarioManager) -> sg.Window:
             sg.Button("Löschen", key="-SCENARIO_DELETE-", s=6),
         ],
         [
-            sg.Button("Zurücksetzen", key="-SCENARIO_RESET-", s=10),
-            sg.Button("Speichern", key="-SCENARIO_SAVE-", s=10),
+            sg.Button("Abgeschlossen", key="-SCENARIO_DONE-", s=11),
+            sg.Button("Zurücksetzen", key="-SCENARIO_RESET-", s=11),
+            sg.Button("Speichern", key="-SCENARIO_SAVE-", s=11),
         ],
         [sg.Frame("Bearbeiten", scenario_details_layout, key="-SCENARIO_EDIT-")],
     ]
@@ -189,13 +209,17 @@ def init_window(manager: ScenarioManager) -> sg.Window:
             sg.TabGroup(
                 [
                     [
-                        sg.Tab("Visualisierung", visualize_layout),
+                        sg.Tab("Allgemein", general_layout),
                         sg.Tab("Szenario - Details", scenario_layout),
                     ]
-                ]
+                ],
+                key="-TAB_GROUP-",
             )
         ],
-        [sg.Button("Beenden", key="-EXIT-")],
+        [
+            sg.Button("Beenden ohne speichern", key="-EXIT-"),
+            sg.Button("Beenden mit speichern", key="-EXIT_SAVE-"),
+        ],
     ]
 
     return sg.Window(
@@ -218,6 +242,9 @@ def update_pbar(window, manager):
 
 def get_scenario(window, values) -> Scenario:
     id = values["-SCENARIO_ID-"]
+    if not id.strip():
+        # Return None if no id was provided
+        return None
     name = values["-SCENARIO_NAME-"]
     aim = values["-SCENARIO_AIM-"]
     successors = [succ.strip() for succ in values["-SCENARIO_SUCCESSORS-"].split(",")]
@@ -237,7 +264,10 @@ def get_scenario(window, values) -> Scenario:
     requirements = values["-SCENARIO_REQUIREMENTS-"]
     achievements = []
     for i in range(MAX_ACHIEVEMENTS):
-        if window[("-SCENARIO_ACHIEVEMENT-", i)].visible:
+        if (
+            window[("-SCENARIO_ACHIEVEMENT-", i)].visible
+            and values[("-SCENARIO_ACHIEVEMENT_NAME-", i)].strip()
+        ):
             type = values[("-SCENARIO_ACHIEVEMENT_TYPE-", i)]
             status = values[("-SCENARIO_ACHIEVEMENT_STATUS-", i)]
             achievement = Achievement(
@@ -333,6 +363,44 @@ def hide_achievement(window, i):
     window[("-SCENARIO_ACHIEVEMENT_CHECK_R-", i)].update(False)
 
 
+def get_scenario_id(values):
+    return values["-SCENARIO_SELECTOR-"].split()[1]
+
+
+def save_world_status(
+    window: sg.Window, values: Dict[any, any], manager: ScenarioManager
+) -> None:
+    manager.world_status = values["-GENERAL_WORLD_STATUS-"]
+    add_world_status(window, values, manager)
+    manager.to_file(config.SCENARIO_DATABASE)
+
+
+def add_world_status(
+    window: sg.Window, values: Dict[any, any], manager: ScenarioManager
+):
+    if values["-GENERAL_WORLD_STATUS_NAME-"].strip():
+        type = values["-GENERAL_WORLD_STATUS_TYPE-"]
+        status = values["-GENERAL_WORLD_STATUS_STATUS-"]
+        achievement = Achievement(
+            values["-GENERAL_WORLD_STATUS_NAME-"],
+            AchievementType[type],
+            AchievementStatus[status],
+        )
+        window["-GENERAL_WORLD_STATUS_NAME-"].update("")
+        manager.add_world_status(achievement)
+
+
+def save_scenario(window: sg.Window, values: Dict[any, any], manager: ScenarioManager):
+    scenario = get_scenario(window, values)
+    manager.add_scenario(scenario)
+    return scenario
+
+
+def update(window, manager):
+    manager.to_file(config.SCENARIO_DATABASE)
+    update_pbar(window, manager)
+
+
 def main():
     manager = ScenarioManager.from_file(config.SCENARIO_DATABASE)
     window = init_window(manager)
@@ -342,6 +410,14 @@ def main():
     while True:
         event, values = window.read()
         if event == "-EXIT-" or event == sg.WIN_CLOSED:
+            break
+        elif event == "-EXIT_SAVE-":
+            tab = window["-TAB_GROUP-"].get()
+            if tab == "Allgemein":
+                save_world_status(window, values, manager)
+            elif tab == "Szenario - Details":
+                save_scenario(window, values, manager)
+                update(window, manager)
             break
         elif event == "-VISUALIZE_RENDER-":
             try:
@@ -357,7 +433,7 @@ def main():
         elif event == "-VISUALIZE_RENDER_ALL-":
             manager.render_tree(config.SCENARIO_TREE, config.SCENARIO_TREE_FORMAT)
         elif event == "-SCENARIO_LOAD-":
-            scenario_id = values["-SCENARIO_SELECTOR-"].split()[1]
+            scenario_id = get_scenario_id(values)
             load_scenario(window, manager, manager[scenario_id])
         elif event == "-SCENARIO_RESET-":
             reset_scenario(window)
@@ -365,16 +441,24 @@ def main():
             unhide_achievement(window)
         elif isinstance(event, tuple) and event[0] == "-SCENARIO_ACHIEVEMENT_DEL-":
             hide_achievement(window, event[1])
-        elif event == "ControlS" or event == "-SCENARIO_SAVE-":
-            scenario = get_scenario(window, values)
-            manager[scenario.id] = scenario
-            manager.to_file(config.SCENARIO_DATABASE)
-            update_pbar(window, manager)
+        elif event == "-SCENARIO_SAVE-":
+            save_scenario(window, values, manager)
+            update(window, manager)
+        elif event == "-SCENARIO_DONE-":
+            scenario = save_scenario(window, values, manager)
+            if scenario:
+                scenario.played = True
+                [
+                    manager.add_world_status(achievement)
+                    for achievement in scenario.achievements
+                ]
+                update(window, manager)
         elif event == "-SCENARIO_DELETE-":
-            scenario_id = values["-SCENARIO_SELECTOR-"].split()[1]
-            del manager.scenarios[scenario_id]
-            manager.to_file(config.SCENARIO_DATABASE)
-            update_pbar(window, manager)
+            scenario_id = get_scenario_id(values)
+            manager.remove_scenario(scenario_id)
+            update(window, manager)
+        elif event == "-GENERAL_SAVE-":
+            save_world_status(window, values, manager)
 
     window.close()
 

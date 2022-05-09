@@ -1,0 +1,1222 @@
+{
+    "scenarios": [
+        {
+            "achievements": [
+                {
+                    "name": "Erste Schritte",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "",
+            "description": "Jekserah l\u00e4sst uns Banditen in den Katakomben t\u00f6ten",
+            "difficulty": 1,
+            "id": "1",
+            "name": "Schwarzgrab",
+            "played": true,
+            "predecessors": [],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "2"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet den Banditen-Kommandanten und alle aufgedeckten Gegner",
+            "attempts": "",
+            "description": "Banditen-Kommandant hat Karte von 'Grauen'\nJekserah befiehlt uns ein Inox-Lager zu verw\u00fcsten",
+            "difficulty": 1,
+            "id": "2",
+            "name": "Grabh\u00f6le",
+            "played": true,
+            "predecessors": [
+                "1"
+            ],
+            "requirements": [
+                {
+                    "name": "Erste Schritte",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                "Je 10 Gold",
+                "+1 Wohlstand"
+            ],
+            "successors": [
+                "4",
+                "3"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Jekserahs Pl\u00e4ne",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "T\u00f6tet f\u00fcnf Mal so viele Gegner wie Charaktere in eurer Gruppe sind",
+            "attempts": "",
+            "description": "Jekserah schickt uns Diamanten zu finden (9)\nWir lernen Argeise (Stadtwache) kennen und warnt uns vor Jekserah (8)",
+            "difficulty": 1,
+            "id": "3",
+            "name": "Inox-Lager",
+            "played": true,
+            "predecessors": [
+                "2"
+            ],
+            "requirements": [
+                {
+                    "name": "Geflohene H\u00e4ndlerin",
+                    "status": 0,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                "Je 15 Gold",
+                "+1 Wohlstand"
+            ],
+            "successors": [
+                "9",
+                "8"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet alle Genger",
+            "attempts": "",
+            "description": "Unter den Schriften finden wir zwei Orte der Macht\n(5) Machenschaften zerst\u00f6ren und herausfinden, was diese planen\n(6) Kultisten helfen, die Untoten zur\u00fcckzutreiben",
+            "difficulty": 1,
+            "id": "4",
+            "name": "Krypta der Verdammten",
+            "played": true,
+            "predecessors": [
+                "2"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "5",
+                "6"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Geflohene H\u00e4ndlerin",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet beide Inox-Leibwachen",
+            "attempts": "",
+            "description": "Stadtwache Argeise schickt uns zu Aesther-Magerin der Stadt, ob diese wei\u00df wohin Jekserah verschwunden ist",
+            "difficulty": 0,
+            "id": "8",
+            "name": "Lagerhaus von Gloomhaven",
+            "played": true,
+            "predecessors": [
+                "3",
+                "6"
+            ],
+            "requirements": [
+                {
+                    "name": "Invasion der Toten",
+                    "status": 0,
+                    "type": 1
+                },
+                {
+                    "name": "Jekserahs Pl\u00e4ne",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                "+2 Ansehen"
+            ],
+            "successors": [
+                "14",
+                "13",
+                "7"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Invasion der Toten",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet den gnadenlosen Aufseher und erbeutet den Schatz",
+            "attempts": "",
+            "description": "",
+            "difficulty": null,
+            "id": "9",
+            "name": "Diamantenmine",
+            "played": false,
+            "predecessors": [
+                "3"
+            ],
+            "requirements": [
+                {
+                    "name": "Geflohene H\u00e4ndlerin",
+                    "status": 0,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                "Je 20 Gold",
+                "+1 Wohlstand"
+            ],
+            "successors": [
+                "12",
+                "11"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Jekserahs Pl\u00e4ne",
+                    "status": 1,
+                    "type": 0
+                },
+                {
+                    "name": "Finstere Beute",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "Deckt das M-Kartenelement auf und t\u00f6tet alle entdeckten Gegner",
+            "attempts": "",
+            "description": "Eine fiese Gesalt gibt uns den Auftrag Jekserah zu t\u00f6ten",
+            "difficulty": 1,
+            "id": "6",
+            "name": "Faulige Krypta",
+            "played": true,
+            "predecessors": [
+                "4"
+            ],
+            "requirements": [],
+            "rewards": [
+                "Je 5 Gold"
+            ],
+            "successors": [
+                "8"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "",
+            "description": "Die Kultisten haben einen unberuhigenden 'Riss' ge\u00f6ffnet\n(10) In den Riss hineingehen\n(14, 19) Die Aesther-Magierin in Gloomhaven dar\u00fcber befragen",
+            "difficulty": 1,
+            "id": "5",
+            "name": "Unheilvolle Krypta",
+            "played": true,
+            "predecessors": [
+                "4"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "14",
+                "19",
+                "10"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "Sch\u00fctzt Hail a, bis sie den Altar erreicht b",
+            "attempts": "",
+            "description": "",
+            "difficulty": null,
+            "id": "19",
+            "name": "Vergessene Krypta",
+            "played": false,
+            "predecessors": [
+                "5"
+            ],
+            "requirements": [
+                {
+                    "name": "Macht der Verbesserung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Macht der Verbesserung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "",
+            "description": "Hail schickt uns zur Frostsenke um eine Kugel zu bergen",
+            "difficulty": null,
+            "id": "14",
+            "name": "Frostsenke",
+            "played": true,
+            "predecessors": [
+                "5",
+                "18",
+                "8"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "D\u00e4monischer Auftrag",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "",
+            "description": "Wir sind durch den Riss hindurch und am Ende treffen wir einen m\u00e4chtigen D\u00e4mon",
+            "difficulty": 0,
+            "id": "10",
+            "name": "Ebene der Elementarm\u00e4chte",
+            "played": true,
+            "predecessors": [
+                "5"
+            ],
+            "requirements": [
+                {
+                    "name": "Riss neutralisiert",
+                    "status": 0,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "22",
+                "21"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "",
+            "description": "Im Tempel der Gro\u00dfen Eiche sei eine m\u00e4chtige Stimme zu finden, die jede Frage beantworten kann, die man ihr stellt\nDie Stimme l\u00e4sst uns w\u00e4hlen zwischen\n(15) Macht\n(17) Reichtum\n(20) Aufenthaltsort der Nekromantin",
+            "difficulty": 1,
+            "id": "13",
+            "name": "Tempel des Sehers",
+            "played": true,
+            "predecessors": [
+                "8"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "17",
+                "15",
+                "20"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "Erbeutet den Schatz",
+            "attempts": "",
+            "description": "Im Schrein finden wir eine seltsame Schrift, die wir noch nicht lesen k\u00f6nnen",
+            "difficulty": 1,
+            "id": "15",
+            "name": "Schrein der St\u00e4rke",
+            "played": true,
+            "predecessors": [
+                "13",
+                "39"
+            ],
+            "requirements": [],
+            "rewards": [
+                "Je 20 Erfahrung"
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "17",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "13"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet Jekserah",
+            "attempts": "",
+            "description": "Mit Hilfe von Hail finden wir das Versteck von Jekserah und t\u00f6ten sie\nJekserah warnt uns vor (28)\nDer Hauptmann gibt uns neue Aufgaben\n(16) Angst vo Drachen\n(18) Schleim in der Kanalisation",
+            "difficulty": 1,
+            "id": "20",
+            "name": "Versteck der Nekromantin",
+            "played": true,
+            "predecessors": [
+                "13",
+                "7"
+            ],
+            "requirements": [
+                {
+                    "name": "Geflohene H\u00e4ndlerin",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                "Je 20 Gold",
+                "+2 Ansehen",
+                "+1 Wohlstand"
+            ],
+            "successors": [
+                "18",
+                "28",
+                "16"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "Erbeutet alle Sch\u00e4tze",
+            "attempts": "",
+            "description": "Wir sollen f\u00fcr Hail Bisswurz sammeln, damit sie Jekserah ausfindig machen kann",
+            "difficulty": 1,
+            "id": "7",
+            "name": "\u00dcppige Grotte",
+            "played": true,
+            "predecessors": [
+                "8"
+            ],
+            "requirements": [
+                {
+                    "name": "Geflohene H\u00e4ndlerin",
+                    "status": 1,
+                    "type": 1
+                },
+                {
+                    "name": "Macht der Verbesserung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "20"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "12",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "9"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [],
+            "aim": "",
+            "attempts": "",
+            "description": "",
+            "difficulty": null,
+            "id": "11",
+            "name": "",
+            "played": false,
+            "predecessors": [
+                "9"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Artefakt: geborgen",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "Zerst\u00f6rt alle Alt\u00e4re",
+            "attempts": "",
+            "description": "Wir suchen nach dem Artefakt und finden Kultisten, die dem Grauen dienen.\nWir finden das Artefakt, aber es scheint verdorben.\n(35) F\u00fcr das B\u00f6se k\u00e4mpfen\n(36) F\u00fcr das Gute k\u00e4mpfen\n(14, 31) Einem Magier \u00fcbergeben (Hail)",
+            "difficulty": 1,
+            "id": "22",
+            "name": "Tempel der Elemente",
+            "played": true,
+            "predecessors": [
+                "10"
+            ],
+            "requirements": [
+                {
+                    "name": "D\u00e4monischer Auftrag",
+                    "status": 1,
+                    "type": 0
+                },
+                {
+                    "name": "Hinweise folgen",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "35",
+                "36",
+                "31"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Riss neutralisiert",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet den Erzd\u00e4mon",
+            "attempts": "",
+            "description": "Wir t\u00f6ten den Erzd\u00e4mon. Dieser teleportiert sich \u00fcber den gesamten Raum. Am Ende erfolglos. Wir neutralisieren damit den enstandenen Riss.",
+            "difficulty": 1,
+            "id": "21",
+            "name": "H\u00f6llenthron",
+            "played": true,
+            "predecessors": [
+                "10"
+            ],
+            "requirements": [
+                {
+                    "name": "Riss neutralisiert",
+                    "status": 0,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                "Je 50 Gold",
+                "+1 Wohlstand",
+                "F\u00fcgt dem Deck Stadt-Ereignis 78 hinzu."
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "3",
+            "description": "Wir untersuchen die Kanalisation von Gloomhaven. Diese sei vergiftet. Wir finden v.a. Schleim, sich teilender Schleim ...\nDie Ratzen scheinen nicht der Grund f\u00fcr den Schleim zu sein und leben hier nur im Schutz vor den Wachen\n(23) Weiter den Pfad folgen und herausfinden, woher das Gift kommt\n(26) In die Quelle der Zisterne eindringen (ben\u00f6tigt 14, 43)",
+            "difficulty": 2,
+            "id": "18",
+            "name": "Verlassene Kanalisation",
+            "played": true,
+            "predecessors": [
+                "20"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "14",
+                "23",
+                "26",
+                "43"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "",
+            "description": "Wir sind auf dem Weg den Drachen zu finden. Dort finden wir Inox mit D\u00e4monen und einen Zettel, der auf eine \"Stimme\" hindeutet?\n(25) weiter den Berg erklimmen\n(24) die H\u00f6hle der Inox weiter erkunden",
+            "difficulty": 1,
+            "id": "16",
+            "name": "Gebirgspass",
+            "played": true,
+            "predecessors": [
+                "20"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "24",
+                "25"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Eine Einladung",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "2",
+            "description": "Nachdem wir Jekserah get\u00f6tet haben besuchen wir weitere Kultisten\nNachdem auch diese tot sind, begegnen wir das Grauen, welcher uns weiter einl\u00e4dt (29)",
+            "difficulty": 1,
+            "id": "28",
+            "name": "\u00c4u\u00dfere Ritualkammer",
+            "played": true,
+            "predecessors": [
+                "20"
+            ],
+            "requirements": [
+                {
+                    "name": "Finstere Beute",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "29"
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Am Rand der Finsternis",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet alle Gegner",
+            "attempts": "2",
+            "description": "Das Grauen hat uns zwar eingeladen, jedoch ist es uns wohl noch b\u00f6se gegen\u00fcber eingestimmt. Aber am Ende entkommt es uns und warnt uns auf ein baldiges Wiedersehen vor.\n\nDer Inox-Barbar ist hier fr\u00fchzeitig nach einer gro\u00dfen AoE gestorben, w\u00e4hrend der Sonnew\u00e4chter mit Ausdauer sich durch die letzten Diener metzelt.",
+            "difficulty": 2,
+            "id": "29",
+            "name": "Heiligtum des Grauens",
+            "played": true,
+            "predecessors": [
+                "28"
+            ],
+            "requirements": [
+                {
+                    "name": "Eine Einladung",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                "Je 15 Erfahrung"
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Artefakt: gel\u00e4utert",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "Zerst\u00f6rt die Felss\u00e4ule a",
+            "attempts": "",
+            "description": "Bei dem Artefakt handelt es sich um das Gef\u00e4\u00df der Elemente. Das Artefakt ist auf Nacht eingestellt und somit verdorben. Nachdem wir die S\u00e4ulen zerst\u00f6rt haben, ist das Artefakt wieder im Geleichgewicht. Wer hat das Artefakt verdorben?? Hail macht uns verschiedene Orte ausfindig, von denen das Artefakt angezogen wurde.\n(43, 37) im Nebelmeer\n(38) Dolchwald (Jeksearhs alter Aufenthaltsort?)\n(39) Gipfel des Kupferkamms",
+            "difficulty": 1,
+            "id": "31",
+            "name": "Ebene der Macht",
+            "played": true,
+            "predecessors": [
+                "22"
+            ],
+            "requirements": [
+                {
+                    "name": "Artefakt: geborgen",
+                    "status": 1,
+                    "type": 1
+                },
+                {
+                    "name": "Macht der Verbesserung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "38",
+                "43",
+                "39",
+                "37"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "35",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "22"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "36",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "22"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "23",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "18"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [],
+            "aim": "Reinigt alle Wasserpumpen",
+            "attempts": "",
+            "description": "",
+            "difficulty": null,
+            "id": "26",
+            "name": "Die alte Zisterne",
+            "played": false,
+            "predecessors": [
+                "18"
+            ],
+            "requirements": [
+                {
+                    "name": "Wasseratmung",
+                    "status": 1,
+                    "type": 1
+                },
+                {
+                    "name": "Durch die Ruinen",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Wasseratmung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet vier Mal so viele Draken wie Charaktere in eurer Gruppe sind",
+            "attempts": "1",
+            "description": "Nach dem Abmetzeln der Draken stellt uns Hail blaue Kugeln zur Wasseratmung her.",
+            "difficulty": 0,
+            "id": "43",
+            "name": "Drakennest",
+            "played": true,
+            "predecessors": [
+                "31",
+                "18"
+            ],
+            "requirements": [
+                {
+                    "name": "Macht der Verbesserung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Befehl des Draken",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "Alle Charaktere m\u00fcssen durch den Ausgang a entkommen",
+            "attempts": "1",
+            "description": "Wir finden einen gewaltigen Draken auf dem Gipfel.\n(33) Wir sollen dem Draken helfen, von Savas gestohlene Flammendr\u00fcsen wiederzuholem\n(34) Wir t\u00f6ten den Draken",
+            "difficulty": 1,
+            "id": "25",
+            "name": "Aufsteig zur Eisklippe",
+            "played": true,
+            "predecessors": [
+                "16"
+            ],
+            "requirements": [],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "34",
+                "33"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "24",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "16"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Jenseits der Kluft",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "aim": "Zerst\u00f6rt den Altar a",
+            "attempts": "1",
+            "description": "(46) Nachdem wir dei Br\u00fccke \u00fcberquert haben, k\u00f6nnen wir klar den weiteren Weg sehen\n(15) Ein Gebirgssee mit interessanten Steinkonstruktionen erregt unsere Aufmerksamkeit",
+            "difficulty": 0,
+            "id": "39",
+            "name": "T\u00fcckische Kluft",
+            "played": true,
+            "predecessors": [
+                "31"
+            ],
+            "requirements": [],
+            "rewards": [
+                "Je 10 Erfahrung"
+            ],
+            "successors": [
+                "46",
+                "15"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "37",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "31"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "38",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "31"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Ende der Verderbtheit",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet den Gefl\u00fcgelten Schrecken",
+            "attempts": "1",
+            "description": "Am Gipfel des Kupferkamms finden wir einen D\u00e4mon. Als er stribt sehen wir (51)",
+            "difficulty": 0,
+            "id": "46",
+            "name": "Alptraumspitze",
+            "played": true,
+            "predecessors": [
+                "39"
+            ],
+            "requirements": [
+                {
+                    "name": "Jenseits der Kluft",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "51"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet alle Gegner und erbeutet den Schatz",
+            "attempts": "",
+            "description": "Quest von Tinkerer. Aus Waldwichten wird eine Essenz hergestellt, um ein Dorf zu retten. Eine freundliche Quatryl baut uns mit der Essenz einen Kompass, der uns zu den notwendigen Heilpflanzen f\u00fchren sollte. Am Ende bemerken wir, die freundliche Quatryl hatte uns reingelegt und versucht dem Wald zu schaden.",
+            "difficulty": 1,
+            "id": "59",
+            "name": "Vergessener Hain",
+            "played": true,
+            "predecessors": [],
+            "requirements": [
+                {
+                    "name": "Pers\u00f6nliche Quest \"Suche nach Heilung\"",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                "60"
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "Erbeutet alle Sch\u00e4tze und entkommt dem allen Charakteren durch den Eingang",
+            "attempts": "2",
+            "description": "Die Quatryl machte mit den Pflanzen Experimente, als die Universit\u00e4t dadurch in Flammen aufging.\nWir rennen in das brennende Haus und retten alle Pflanzen. Die Quatryl ist entkommen, aber sei es drum. Ich habe meine Pflanzen!\n\nDer Auftrag war schwrer als erwartet, weil die Gruppe stark unterschiedliche Level aufwies.",
+            "difficulty": 2,
+            "id": "60",
+            "name": "Alchemielabor",
+            "played": true,
+            "predecessors": [
+                "59"
+            ],
+            "requirements": [
+                {
+                    "name": "Pers\u00f6nliche Quest \"Suche nach Heilung\"",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                "Quest \"Suche nach Heilung\" abgeschlossen",
+                "\u00d6ffnet Umschalg X",
+                "+1 Wohlstand"
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Antike Technologie",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet den arkanen Golem",
+            "attempts": "5",
+            "description": "Freigeschaltet durch zuf\u00e4lliges Szenario. Der Golem am Ende hat Intelligenz in der Bibliothek erlangt und gelernt, dass er ein seelenloses Monster ist und die Bib niemals verlassen kann.\n\nDer Beginn war sehr hart durch unz\u00e4hlige Monster, und fr\u00fche B\u00e4ren. Wir mussten eine extra Strategie entwickeln, um nicht sofort zu sterben. Im Teil 2 des Szenarios musste ein Raum mit vielen Fallen und schweres Gel\u00e4nde gemeistert werden, um dann im Anschluss einen Boss zu bek\u00e4mpfen. Sehr geil!",
+            "difficulty": 2,
+            "id": "67",
+            "name": "Arkane Bibliothek",
+            "played": true,
+            "predecessors": [],
+            "requirements": [],
+            "rewards": [
+                "\"Energiekern\" (Gegenstand 132)"
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": null,
+            "attempts": null,
+            "description": null,
+            "difficulty": null,
+            "id": "51",
+            "name": null,
+            "played": false,
+            "predecessors": [
+                "46"
+            ],
+            "requirements": [],
+            "rewards": [],
+            "successors": []
+        },
+        {
+            "achievements": [
+                {
+                    "name": "Befehl des Draken",
+                    "status": 0,
+                    "type": 0
+                },
+                {
+                    "name": "Erlegter Draken",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "aim": "T\u00f6tet den Drakenf\u00fcrsten",
+            "attempts": "2",
+            "description": "Wir t\u00f6ten den Drakenf\u00fcrst. Er beschw\u00f6rte nervige kleine Zephyre, die den Sonnenw\u00e4chter traurigerweise einkesselten, bis zu seinem Elend. In Gloomhaven erwartete uns kein gro\u00dfer Triumpf. Belastend.",
+            "difficulty": 1,
+            "id": "34",
+            "name": "Versengter Gipfel",
+            "played": true,
+            "predecessors": [
+                "25"
+            ],
+            "requirements": [
+                {
+                    "name": "Befehl des Draken",
+                    "status": 1,
+                    "type": 0
+                },
+                {
+                    "name": "Hilfe f\u00fcr den Draken",
+                    "status": 0,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                "Je 20 Gold",
+                "+2 Ansehen",
+                "+1 Wohlstand"
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "T\u00f6tet den Fahlen",
+            "attempts": "2",
+            "description": "Zufallsszenario: Ein Aesther beschreibt uns einen Weg zu einem Tempel voller D\u00e4monen. Wir t\u00f6ten den D\u00e4mon.\n\nWir mussten das Szenario erneut machen, um die Truhe zu holen, lul.",
+            "difficulty": 1,
+            "id": "81",
+            "name": "Tempel des Zwielichts",
+            "played": true,
+            "predecessors": [],
+            "requirements": [
+                {
+                    "name": "Macht der Verbesserung",
+                    "status": 1,
+                    "type": 1
+                }
+            ],
+            "rewards": [
+                "Je 10 Erfahrung"
+            ],
+            "successors": [
+                ""
+            ]
+        },
+        {
+            "achievements": [],
+            "aim": "Erbeutet alle Sch\u00e4tze und entkommt mit allen Charakteren durch den Ausgang a",
+            "attempts": "",
+            "description": "",
+            "difficulty": null,
+            "id": "33",
+            "name": "Savvas-Waffenkammer",
+            "played": false,
+            "predecessors": [
+                "25"
+            ],
+            "requirements": [
+                {
+                    "name": "Befehl des Draken",
+                    "status": 1,
+                    "type": 0
+                },
+                {
+                    "name": "Befehl der Stimme",
+                    "status": 1,
+                    "type": 0
+                }
+            ],
+            "rewards": [
+                ""
+            ],
+            "successors": [
+                ""
+            ]
+        }
+    ],
+    "world_status": [
+        {
+            "name": "Am Rand der Finsternis",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Antike Technologie",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Artefakt: gel\u00e4utert",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Befehl des Draken",
+            "status": 0,
+            "type": 0
+        },
+        {
+            "name": "D\u00e4monischer Auftrag",
+            "status": 1,
+            "type": 0
+        },
+        {
+            "name": "Eine Einladung",
+            "status": 1,
+            "type": 0
+        },
+        {
+            "name": "Ende der Verderbtheit",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Erste Schritte",
+            "status": 1,
+            "type": 0
+        },
+        {
+            "name": "Finstere Beute",
+            "status": 1,
+            "type": 0
+        },
+        {
+            "name": "Geflohene H\u00e4ndlerin",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Jekserahs Pl\u00e4ne",
+            "status": 1,
+            "type": 0
+        },
+        {
+            "name": "Jenseits der Kluft",
+            "status": 1,
+            "type": 0
+        },
+        {
+            "name": "Macht der Verbesserung",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Riss neutralisiert",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "Wasseratmung",
+            "status": 1,
+            "type": 1
+        },
+        {
+            "name": "\u00dcble Machenschaten",
+            "status": 1,
+            "type": 0
+        }
+    ]
+}
