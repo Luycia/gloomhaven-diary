@@ -448,6 +448,7 @@ def main():
             scenario = save_scenario(window, values, manager)
             if scenario:
                 scenario.played = True
+                window['-SCENARIO_PLAYED-'].update(True)
                 [
                     manager.add_world_status(achievement)
                     for achievement in scenario.achievements

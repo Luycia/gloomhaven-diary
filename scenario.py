@@ -68,7 +68,7 @@ class Scenario:
     played: bool = False
 
     def formatted(self):
-        return f"Nr. {self.id} {self.name}\nVoraussetzungen: {self.requirements}\nZiel: {self.aim}\nVorgänger: {self.predecessors}\nNachfolger: {self.successors}\nSchwierigkeit: {self.difficulty.name if self.difficulty else None}, Versuche: {self.attempts}\nBelohnungen: {self.rewards}\nNeue Orte: {self.successors}\n{self.description}"
+        return f"Nr. {self.id} {self.name}\nVoraussetzungen: {self.requirements}\nZiel: {self.aim}\nVorgänger: {self.predecessors}\nNachfolger: {self.successors}\nSchwierigkeit: {self.difficulty.name if self.difficulty else None}, Versuche: {self.attempts}\nBelohnungen: {self.rewards}\nErfolge: {self.achievements}\nNeue Orte: {self.successors}\n{self.description}"
 
     def short_formatted(self):
         return f"Nr. {self.id} {self.name if self.name else ''}"
@@ -136,6 +136,10 @@ class ScenarioManager:
 
     def add_world_status(self, achievement: Achievement) -> None:
         if achievement not in self.world_status:
+            for del_achievement in self.world_status:
+                if del_achievement.name == achievement.name:
+                    self.world_status.remove(del_achievement)
+
             self.world_status.append(achievement)
 
     def remove_world_status(self, achievement: Achievement) -> None:
@@ -254,7 +258,7 @@ class ScenarioManager:
         return "\n".join(
             [
                 str(scenario)
-                for scenario in sorted(self.scenarios.values(), key=lambda x: x.id)
+                for scenario in sorted(self.scenarios.values(), key=lambda x: int(x.id))
             ]
         )
 
